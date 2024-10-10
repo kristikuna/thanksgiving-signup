@@ -39,5 +39,28 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: "gatsby-source-mongodb",
+      options: {
+        dbName: "thanksgiving",
+        collection: "signup",
+        connectionString:
+          "mongodb+srv://kristik1234:kristik1234@cluster0.y2cbo.mongodb.net/",
+        server: {
+          address: "main-shard-00-01-zxsxp.mongodb.net",
+          port: 27017,
+        },
+        auth: {
+          user: "kristik1234",
+          password: "kristik1234",
+        },
+        extraParams: {
+          replicaSet: "Main-shard-0",
+          ssl: true,
+          authSource: "admin",
+          retryWrites: true,
+        },
+      },
+    },
   ],
 }
