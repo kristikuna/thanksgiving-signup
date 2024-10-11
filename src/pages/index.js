@@ -3,24 +3,23 @@ import { Link } from "gatsby"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import * as styles from "../components/index.module.css"
+// import * as styles from "../components/index.module.css"
 
-const samplePageLinks = [
-  {
-    text: "Page 2",
-    url: "page-2",
-    badge: false,
-    description:
-      "A simple example of linking to another page within a Gatsby site",
-  },
-]
+// const samplePageLinks = [
+//   {
+//     text: "Page 2",
+//     url: "page-2",
+//     badge: false,
+//     description:
+//       "A simple example of linking to another page within a Gatsby site",
+//   },
+// ]
+function IndexPage({ data }) {
+  const allSignUps = data.allMongodbThanksgivingSignup.edges
 
-const IndexPage = props => {
-  const recipes = props.data.allMongodbThanksgivingSignup.edges
-  console.log(recipes)
   return (
     <Layout>
-      <div className={styles.textCenter}>
+      {/* <div className={styles.textCenter}>
         <p className={styles.intro}>
           {samplePageLinks.map((link, i) => (
             <React.Fragment key={link.url}>
@@ -29,15 +28,15 @@ const IndexPage = props => {
             </React.Fragment>
           ))}
         </p>
-      </div>
+      </div> */}
       <div className="signup-list">
-        {recipes.map(recipe => (
-          <div className="recipes">
-            <Link to={"/recipe/" + recipe.node.id}>
-              <p>{recipe.node.name}</p>
+        {allSignUps.map(signUp => (
+          <div key={signUp.node.id}>
+            <Link to={"/recipe/" + signUp.node.id}>
+              <p>{signUp.node.name}</p>
             </Link>
-            <p>{recipe.node.food}</p>
-            <p>{recipe.node.category}</p>
+            <p>{signUp.node.food}</p>
+            <p>{signUp.node.category}</p>
           </div>
         ))}
       </div>
