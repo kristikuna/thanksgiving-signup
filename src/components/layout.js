@@ -1,20 +1,17 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
- */
-
 import * as React from "react"
+import { Box } from "@mui/material"
 
-import Header from "./header"
+// import Header from "./header"
 import "./layout.css"
 
 const Layout = ({ children }) => {
+  const EMOJI_LIST = ["❤️", "🦃", "🐱"]
+  const madeWithEmoji =
+    EMOJI_LIST[Math.floor(Math.random() * EMOJI_LIST.length)]
   return (
     <>
-      <Header siteTitle={`Thanksgiving`} />
-      <div
+      {/* <Header siteTitle={`Hey, Fam 👋`} /> */}
+      <Box
         style={{
           margin: `0 auto`,
           maxWidth: `var(--size-content)`,
@@ -22,15 +19,15 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `var(--space-5)`,
+        <Box
+          component="footer"
+          sx={{
             fontSize: `var(--font-sm)`,
           }}
         >
-          © {new Date().getFullYear()} &middot; Made with ❤️ by Kristi Kuna
-        </footer>
-      </div>
+          {`Made with ${madeWithEmoji} by Kristi Kuna`}
+        </Box>
+      </Box>
     </>
   )
 }

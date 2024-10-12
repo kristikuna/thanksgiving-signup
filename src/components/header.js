@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import Box from "@mui/material/Box"
 
 const Header = ({ siteTitle }) => (
   <header
@@ -11,15 +11,7 @@ const Header = ({ siteTitle }) => (
       justifyContent: `space-between`,
     }}
   >
-    <Link
-      to="/"
-      style={{
-        fontSize: `var(--font-sm)`,
-        textDecoration: `none`,
-      }}
-    >
-      {siteTitle}
-    </Link>
+    <Box to="/">{siteTitle}</Box>
   </header>
 )
 
