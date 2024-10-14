@@ -8,15 +8,15 @@ import TableRow from "@mui/material/TableRow"
 import Paper from "@mui/material/Paper"
 
 function SignUpTable({ allSignUps }) {
-  console.log(allSignUps)
   return (
     <TableContainer component={Paper}>
-      <Table aria-label="simple table">
+      <Table aria-label="potluck table">
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
             <TableCell>What You're Bringing</TableCell>
-            <TableCell>Category</TableCell>
+            <TableCell>Food Prep Needs</TableCell>
+            <TableCell>Allergies</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -27,7 +27,7 @@ function SignUpTable({ allSignUps }) {
             >
               <TableCell component="th">{signUp.node.name}</TableCell>
               <TableCell>{signUp.node.food}</TableCell>
-              <TableCell>{signUp.node.category}</TableCell>
+              {/* <TableCell>{signUp.node.category}</TableCell> */}
             </TableRow>
           ))}
         </TableBody>
