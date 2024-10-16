@@ -3,8 +3,8 @@ import { graphql } from "gatsby"
 import { Typography } from "@mui/material"
 import Layout from "../components/layout"
 import SignUpTable from "../components/SignUpTable/SignUpTable"
-import Add from "../components/Add/Add"
 import Countdown from "../components/Countdown/Countdown"
+import Spinner from "../components/Spinner/Spinner"
 
 function IndexPage({ data }) {
   const allSignUps = data.allMongodbThanksgivingSignup.edges
@@ -14,10 +14,11 @@ function IndexPage({ data }) {
       <Typography
         variant="h1"
         color="var(--color-code-bg)"
-        sx={{ fontSize: "3rem", fontWeight: "bold" }}
+        sx={{ fontSize: "3rem", fontWeight: "bold", padding: "1rem" }}
       >{`Hey, Fam 👋`}</Typography>
+      <Spinner />
+
       <Countdown />
-      <Add />
       <SignUpTable allSignUps={allSignUps} />
     </Layout>
   )
@@ -31,9 +32,11 @@ export const pageQuery = graphql`
       edges {
         node {
           id
+          category
           name
           food
-          category
+          foodPrepNeeds
+          notes
         }
       }
     }

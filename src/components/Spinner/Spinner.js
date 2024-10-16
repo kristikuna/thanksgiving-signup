@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 
-function App() {
+function Spinner() {
   const [rotation, setRotation] = useState(0)
 
   useEffect(() => {
@@ -24,10 +24,10 @@ function App() {
         aria-label="loading"
         style={{ fontSize: "48px", transform: `rotate(${rotation}deg)` }}
       >
-        &#x1f983;{" "}
+        &#x1f983;
       </span>
     </div>
   )
 }
 
-export default App
+export default Spinner
